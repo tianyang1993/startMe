@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.startme.app.MainActivity">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:background="@drawable/bg_main" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN WITH FACEBOOK"
+        android:id="@+id/facebook_btn"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@drawable/btn_facebook"
+        android:layout_marginBottom="150dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:id="@+id/signup_btn"
+        android:layout_gravity="left|bottom"
+        android:background="@drawable/btn_blue"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="65dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:id="@+id/signin_btn"
+        android:layout_gravity="right|bottom"
+        android:background="@drawable/btn_orange"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_marginBottom="65dp"
+        android:layout_marginRight="15dp" />
+
+
+</FrameLayout>
