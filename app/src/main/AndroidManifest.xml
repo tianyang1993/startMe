@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
-            android:name="com.example.startme.app.MainActivity"
+            android:name="com.example.startme.app.controller.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,15 +17,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.startme.app.SignInActivity"
+            android:name="com.example.startme.app.controller.SignInActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.startme.app.SignUpActivity"
+            android:name="com.example.startme.app.controller.SignUpActivity"
             android:label="@string/title_activity_sign_up" >
         </activity>
         <activity
-            android:name="com.example.startme.app.ProfileActivity"
+            android:name="com.example.startme.app.controller.ProfileActivity"
             android:label="@string/title_activity_profile" >
+        </activity>
+        <activity
+            android:name="com.example.startme.app.controller.MainRootActivity"
+            android:label="@string/title_activity_main_root" >
+        </activity>
+        <activity
+            android:name="com.example.startme.app.controller.TabBarActivity"
+            android:label="@string/title_activity_tab_bar" >
+        </activity>
+        <activity
+            android:name="com.example.startme.app.controller.HomeActivity"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name="com.example.startme.app.controller.ConnectActivity"
+            android:label="@string/title_activity_connect" >
+        </activity>
+        <activity
+            android:name="com.example.startme.app.controller.ShareActivity"
+            android:label="@string/title_activity_share" >
+        </activity>
+        <activity
+            android:name="com.example.startme.app.controller.AlertActivity"
+            android:label="@string/title_activity_alert" >
+        </activity>
+        <activity
+            android:name="com.example.startme.app.controller.SettingActivity"
+            android:label="@string/title_activity_setting" >
+        </activity>
+        <activity
+            android:name="com.example.startme.app.controller.ShareBlankActivity"
+            android:label="@string/title_activity_share_blank" >
         </activity>
     </application>
 

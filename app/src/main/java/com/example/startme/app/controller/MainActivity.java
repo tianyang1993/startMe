@@ -1,13 +1,13 @@
-package com.example.startme.app;
+package com.example.startme.app.controller;
 
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.startme.app.R;
 
 
 public class MainActivity extends Activity {
@@ -40,13 +40,13 @@ public class MainActivity extends Activity {
                 goSignUp();
             }
         });
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        overridePendingTransition(R.anim.anim_left_slide_in, R.anim.anim_right_slide_out);
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+
     }
 
     void goSignIn(){
@@ -57,7 +57,6 @@ public class MainActivity extends Activity {
     void goSignUp(){
         Intent intent = new Intent(this, SignUpActivity.class);
         this.startActivity(intent);
-
     }
 
 }

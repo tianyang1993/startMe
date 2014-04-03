@@ -1,31 +1,29 @@
-package com.example.startme.app;
+package com.example.startme.app.controller;
 
 import android.app.Activity;
-
-/**
- * Created by Tian on 4/1/14.
- */
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class SignInActivity extends Activity {
+import com.example.startme.app.R;
+
+public class SignUpActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_signin);
+        setContentView(R.layout.activity_signup);
 
-        Button btnSignIn = (Button)findViewById(R.id.signin_btn1);
+        Button btnSignIn = (Button)findViewById(R.id.signup_btn1);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn();
+                signUp();
             }
         });
 
-        Button btnCancel = (Button)findViewById(R.id.cancel_btn);
+        Button btnCancel = (Button)findViewById(R.id.cancel_btn1);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,19 +38,15 @@ public class SignInActivity extends Activity {
         overridePendingTransition(R.anim.anim_right_slide_in, R.anim.anim_left_slide_out);
     }
 
-    @Override
-    protected void onStop() {
-        super.onStart();
+    void signUp(){
 
-    }
-
-    void signIn(){
-
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
     }
 
     void cancel(){
 
-
         finish();
     }
+
 }
