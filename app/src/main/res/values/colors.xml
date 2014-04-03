@@ -4,6 +4,8 @@
     <color name="bg_color">#ececec</color>
     <color name="txt_bg_color">#175579</color>
     <color name="txt_fg_color">#ffffff</color>
+    <color name="txt_fg_color1">#595959</color>
+    <color name="txt_fg_color2">#969696</color>
     <color name="title_bg_color">#62b0e3</color>
     <color name="tab_bg_color">#397ab7</color>
 </resources>
