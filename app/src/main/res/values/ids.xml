@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="button_facebook_login" />
+    <item type="id" name="button_main_signin" />
+    <item type="id" name="button_main_signup" />
+    <item type="id" name="button_signin_cancel" />
+    <item type="id" name="button_signin" />
+    <item type="id" name="edit_signin_username" />
+    <item type="id" name="edit_signin_password" />
+    <item type="id" name="button_signup_cancel" />
+    <item type="id" name="button_signup" />
+    <item type="id" name="edit_signup_firstname" />
+    <item type="id" name="edit_signup_lastname" />
+    <item type="id" name="edit_signup_email" />
+    <item type="id" name="edit_signup_confirm_email" />
+    <item type="id" name="edit_signup_new_pass" />
+    <item type="id" name="edit_signup_confirm_pass" />
+    <item type="id" name="button_setting_logout" />
+
+    <item type="id" name="button_profile_done" />
+    <item type="id" name="button_profile_cancel" />
+
+    <item type="id" name="button_share_send" />
+    <item type="id" name="button_share_cancel" />
+
+</resources>

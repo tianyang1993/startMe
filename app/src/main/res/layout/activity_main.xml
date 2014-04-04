@@ -1,50 +1,43 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_main">
 
-    tools:context="com.example.startme.app.controller.MainActivity">
-
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:background="@drawable/bg_main" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOGIN WITH FACEBOOK"
-        android:id="@+id/facebook_btn"
-        android:layout_gravity="center_horizontal|bottom"
+        android:id="@id/button_facebook_login"
         android:background="@drawable/btn_facebook"
-        android:layout_marginBottom="150dp"
-        android:textColor="#ffffff"
-        android:textStyle="bold" />
+
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:text="@string/title_button_facebook_login"
+        android:textColor="@color/btn_txt_color" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:id="@+id/signup_btn"
-        android:layout_gravity="left|bottom"
+        android:text="@string/title_button_signup"
+        android:id="@id/button_main_signup"
+        android:layout_below="@id/button_facebook_login"
+        android:layout_alignLeft="@id/button_facebook_login"
+        android:layout_alignStart="@id/button_facebook_login"
         android:background="@drawable/btn_blue"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="65dp" />
+        android:textColor="@color/btn_txt_color"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:id="@+id/signin_btn"
-        android:layout_gravity="right|bottom"
+        android:text="@string/title_button_signin"
+        android:id="@id/button_main_signin"
+        android:layout_alignTop="@id/button_main_signup"
+        android:layout_alignRight="@id/button_facebook_login"
+        android:layout_alignEnd="@id/button_facebook_login"
         android:background="@drawable/btn_orange"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:layout_marginBottom="65dp"
-        android:layout_marginRight="15dp" />
-
-
-</FrameLayout>
+        android:textColor="@color/btn_txt_color" />
+</RelativeLayout>

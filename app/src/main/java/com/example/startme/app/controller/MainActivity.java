@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnFacebook = (Button)findViewById(R.id.facebook_btn);
+        Button btnFacebook = (Button)findViewById(R.id.button_facebook_login);
         btnFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        Button btnSignIn = (Button)findViewById(R.id.signin_btn);
+        Button btnSignIn = (Button)findViewById(R.id.button_main_signin);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        Button btnSignUp = (Button)findViewById(R.id.signup_btn);
+        Button btnSignUp = (Button)findViewById(R.id.button_main_signup);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

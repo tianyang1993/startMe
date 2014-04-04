@@ -1,57 +1,112 @@
-<FrameLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/bg_color">
 
-    <ImageView
-        android:layout_width="143dp"
-        android:layout_height="143dp"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal|top"
-        android:background="@drawable/default_profile"
-        android:layout_marginTop="120dp" />
-
-    <Button
-        android:layout_width="176dp"
-        android:layout_height="wrap_content"
-        android:text="TAKE A PICTURE"
-        android:id="@+id/takepic_btn"
-        android:layout_gravity="center_horizontal|top"
-        android:textStyle="bold"
-        android:layout_marginTop="270dp" />
-    <Button
-        android:layout_width="176dp"
-        android:layout_height="wrap_content"
-        android:text="OPEN LIBRARY"
-        android:id="@+id/library_btn"
-        android:layout_gravity="center_horizontal|top"
-        android:textStyle="bold"
-        android:layout_marginTop="330dp" />
-    <Button
-        android:layout_width="176dp"
-        android:layout_height="wrap_content"
-        android:text="FROM FACEBOOK"
-        android:id="@+id/from_facebook_btn"
-        android:layout_gravity="center_horizontal|top"
-        android:textStyle="bold"
-        android:layout_marginTop="390dp" />
-
-    <Button
-        android:layout_width="176dp"
-        android:layout_height="80dp"
-        android:text="RESET DEFAULT"
-        android:id="@+id/reset_btn"
-        android:layout_gravity="center_horizontal|top"
-        android:textStyle="bold"
-        android:layout_marginTop="460dp" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="PROFILE"
+        android:id="@+id/textView"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:background="@color/title_bg_color"
+        android:textAlignment="center"
+        android:textStyle="normal"
+        android:layout_alignParentTop="true"
+        android:gravity="center" />
 
     <EditText
-        android:layout_width="160dp"
-        android:layout_height="45dp"
-        android:id="@+id/editText"
-        android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="70dp"
-        android:hint="Username" />
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/name_edit"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:lines="1"
+        android:singleLine="true" />
 
-</FrameLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:id="@+id/profile_imageview"
+        android:layout_below="@+id/name_edit"
+        android:layout_alignLeft="@+id/name_edit"
+        android:layout_alignStart="@+id/name_edit"
+        android:background="@drawable/default_profile"
+        android:layout_alignRight="@+id/name_edit"
+        android:layout_alignEnd="@+id/name_edit" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TAKE A PICTURE"
+        android:id="@+id/takepic_button"
+        android:layout_below="@+id/profile_imageview"
+        android:layout_alignLeft="@+id/profile_imageview"
+        android:layout_alignStart="@+id/profile_imageview"
+        android:layout_alignRight="@+id/profile_imageview"
+        android:layout_alignEnd="@+id/profile_imageview"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OPEN LIBRARY"
+        android:id="@+id/openlib_button"
+        android:layout_below="@+id/takepic_button"
+        android:layout_alignLeft="@+id/takepic_button"
+        android:layout_alignStart="@+id/takepic_button"
+        android:layout_alignRight="@+id/takepic_button"
+        android:layout_alignEnd="@+id/takepic_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FROM FACEBOOK"
+        android:id="@+id/fromfb_button"
+        android:layout_below="@+id/openlib_button"
+        android:layout_alignLeft="@+id/openlib_button"
+        android:layout_alignStart="@+id/openlib_button"
+        android:layout_alignRight="@+id/openlib_button"
+        android:layout_alignEnd="@+id/openlib_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESET DEFAULT"
+        android:id="@+id/reset_button"
+        android:layout_below="@+id/fromfb_button"
+        android:layout_alignLeft="@+id/fromfb_button"
+        android:layout_alignStart="@+id/fromfb_button"
+        android:layout_alignRight="@+id/fromfb_button"
+        android:layout_alignEnd="@+id/fromfb_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/title_topbar_button_done"
+        android:id="@id/button_profile_done"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:text="@string/title_topbar_button_cancel"
+        android:id="@id/button_profile_cancel"
+        android:layout_alignTop="@id/button_profile_done"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/txt_fg_color"
+        android:clickable="true" />
+</RelativeLayout>
