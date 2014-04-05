@@ -25,10 +25,22 @@ import java.io.IOException;
 
 public class TakePictureActivity extends Activity {
 
+    private static final int FLASH_MODE_ON = 1;
+    private static final int FLASH_MODE_OFF = 2;
+    private static final int FLASH_MODE_AUTO = 3;
+
     private static final int REQUEST_SELECT_PICTURE = 1;
 
-    private Camera mCamera;
+    private static Camera mCamera;
     private CameraPreview mPreview;
+    private Camera.Parameters mCameraParameters;
+
+    boolean isFilterOpened = false;
+    boolean isFrontCamera = false;
+    int     nFlashMode = FLASH_MODE_OFF;
+
+    ImageButton btnFilter = null;
+    ImageButton btnFlash = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +49,16 @@ public class TakePictureActivity extends Activity {
 
         // Create an instance of Camera
         mCamera = getCameraInstance();
+        mCameraParameters = mCamera.getParameters();
+        mCameraParameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+        mCamera.setParameters(mCameraParameters);
 
         // Create our Preview view and set it as the content of our activity.
         mPreview = new CameraPreview(this, mCamera);
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
         preview.addView(mPreview);
 
-        ImageButton btnClose = (ImageButton)findViewById(R.id.pic_close_button);
+        ImageButton btnClose = (ImageButton)findViewById(R.id.button_pic_close);
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +66,7 @@ public class TakePictureActivity extends Activity {
             }
         });
 
-        ImageButton btnBlur = (ImageButton)findViewById(R.id.pic_blur_button);
+        ImageButton btnBlur = (ImageButton)findViewById(R.id.button_pic_blur);
         btnBlur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,23 +74,47 @@ public class TakePictureActivity extends Activity {
             }
         });
 
-        ImageButton btnCamera = (ImageButton)findViewById(R.id.pic_camera_button);
+        ImageButton btnCamera = (ImageButton)findViewById(R.id.button_pic_camera_change);
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if (isFrontCamera){
+                    isFrontCamera = false;
+                }else{
+                    isFrontCamera = true;
+                }
             }
         });
 
-        ImageButton btnFlash = (ImageButton)findViewById(R.id.pic_flash_button);
+        btnFlash = (ImageButton)findViewById(R.id.button_pic_flash);
+        btnFlash.setBackgroundResource(R.drawable.flash_off);
         btnFlash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(nFlashMode == FLASH_MODE_OFF){
+
+                    nFlashMode = FLASH_MODE_ON;
+                    mCameraParameters.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
+                    btnFlash.setBackgroundResource(R.drawable.flash);
+                }else if (nFlashMode == FLASH_MODE_ON){
+                    nFlashMode = FLASH_MODE_AUTO;
+                    mCameraParameters.setFlashMode(Camera.Parameters.FLASH_MODE_AUTO);
+                    btnFlash.setBackgroundResource(R.drawable.flash_auto);
+
+                }else if (nFlashMode == FLASH_MODE_AUTO){
+
+                    nFlashMode = FLASH_MODE_OFF;
+                    mCameraParameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+                    btnFlash.setBackgroundResource(R.drawable.flash_off);
+                }
+
+                mCamera.setParameters(mCameraParameters);
             }
         });
 
-        ImageButton btnOpenLib = (ImageButton)findViewById(R.id.pic_open_button);
+        ImageButton btnOpenLib = (ImageButton)findViewById(R.id.button_pic_gallery);
         btnOpenLib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +122,7 @@ public class TakePictureActivity extends Activity {
             }
         });
 
-        ImageButton btnShot = (ImageButton)findViewById(R.id.pic_shot_button);
+        ImageButton btnShot = (ImageButton)findViewById(R.id.button_pic_shot);
         btnShot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,14 +130,30 @@ public class TakePictureActivity extends Activity {
             }
         });
 
-        ImageButton btnFilter = (ImageButton)findViewById(R.id.pic_filter_button);
+        btnFilter = (ImageButton)findViewById(R.id.button_pic_filter);
         btnFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(isFilterOpened){
+                    isFilterOpened = false;
+                    btnFilter.setBackgroundResource(R.drawable.filter_open);
+                }else{
+                    isFilterOpened = true;
+                    btnFilter.setBackgroundResource(R.drawable.filter_close);
+                }
             }
         });
+    }
 
+    @Override
+    protected void onPause() {
+
+        if (mCamera != null){
+            mCamera.release();
+        }
+
+        super.onPause();
     }
 
     @Override

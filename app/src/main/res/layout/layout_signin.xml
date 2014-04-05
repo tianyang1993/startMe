@@ -17,7 +17,8 @@
         android:layout_marginTop="250dp"
         android:lines="1"
         android:textColor="@color/txt_fg_color"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:padding="8dp"/>
 
     <EditText
         android:layout_width="300dp"
@@ -32,7 +33,8 @@
         android:layout_marginTop="5dp"
         android:inputType="textPassword"
         android:lines="1"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:padding="8dp"/>
 
     <Button
         android:layout_width="100dp"

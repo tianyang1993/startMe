@@ -4,13 +4,20 @@ package com.example.startme.app.controller;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.facebook.*;
+import com.facebook.model.*;
 
 import com.example.startme.app.R;
 
 
 public class MainActivity extends Activity {
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +28,7 @@ public class MainActivity extends Activity {
         btnFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                loginWithFacebook();
             }
         });
 
@@ -59,4 +66,28 @@ public class MainActivity extends Activity {
         this.startActivity(intent);
     }
 
+    void loginWithFacebook(){
+        // start Facebook Login
+        Session.openActiveSession(this, true, new Session.StatusCallback() {
+
+            // callback when session changes state
+            @Override
+            public void call(Session session, SessionState state, Exception exception) {
+                if (session.isOpened()) {
+
+                    // make request to the /me API
+                    Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
+
+                        // callback after Graph API response with user object
+                        @Override
+                        public void onCompleted(GraphUser user, Response response) {
+                            if (user != null) {
+                                Log.i(TAG, "facebook login success");
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
 }

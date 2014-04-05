@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">startMe</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_id">1433922150183075</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="title_activity_profile">ProfileActivity</string>

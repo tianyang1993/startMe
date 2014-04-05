@@ -23,4 +23,13 @@
     <item type="id" name="button_share_send" />
     <item type="id" name="button_share_cancel" />
 
+    <item type="id" name="button_pic_blur" />
+    <item type="id" name="button_pic_flash" />
+    <item type="id" name="button_pic_camera_change" />
+    <item type="id" name="button_pic_close" />
+    <item type="id" name="button_pic_gallery" />
+    <item type="id" name="button_pic_shot" />
+    <item type="id" name="button_pic_filter" />
+
+
 </resources>
