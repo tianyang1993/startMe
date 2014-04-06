@@ -13,11 +13,16 @@ import com.facebook.*;
 import com.facebook.model.*;
 
 import com.example.startme.app.R;
-
+import com.facebook.LoggingBehavior;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.Settings;
 
 public class MainActivity extends Activity {
 
     private static final String TAG = "MainActivity";
+
+    private Session.StatusCallback statusCallback = new SessionStatusCallback();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +52,51 @@ public class MainActivity extends Activity {
                 goSignUp();
             }
         });
+
+        Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
+
+        Session session = Session.getActiveSession();
+        if (session == null) {
+            if (savedInstanceState != null) {
+                session = Session.restoreSession(this, null, statusCallback, savedInstanceState);
+            }
+            if (session == null) {
+                session = new Session(this);
+            }
+            Session.setActiveSession(session);
+            if (session.getState().equals(SessionState.CREATED_TOKEN_LOADED)) {
+                session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+            }
+        }
+
+        updateView();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        Session.getActiveSession().addCallback(statusCallback);
 
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Session.getActiveSession().removeCallback(statusCallback);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Session session = Session.getActiveSession();
+        Session.saveSession(session, outState);
     }
 
     void goSignIn(){
@@ -67,27 +110,30 @@ public class MainActivity extends Activity {
     }
 
     void loginWithFacebook(){
-        // start Facebook Login
-        Session.openActiveSession(this, true, new Session.StatusCallback() {
+        Session session = Session.getActiveSession();
+        if (!session.isOpened() && !session.isClosed()) {
+            session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+        } else {
+            Session.openActiveSession(this, true, statusCallback);
+        }
+    }
 
-            // callback when session changes state
-            @Override
-            public void call(Session session, SessionState state, Exception exception) {
-                if (session.isOpened()) {
+    private void updateView() {
+        Session session = Session.getActiveSession();
+        if (session.isOpened()) {
 
-                    // make request to the /me API
-                    Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
+            Log.i(TAG, "facebook login success!!!");
 
-                        // callback after Graph API response with user object
-                        @Override
-                        public void onCompleted(GraphUser user, Response response) {
-                            if (user != null) {
-                                Log.i(TAG, "facebook login success");
-                            }
-                        }
-                    });
-                }
-            }
-        });
+        } else {
+
+
+        }
+    }
+
+    private class SessionStatusCallback implements Session.StatusCallback {
+        @Override
+        public void call(Session session, SessionState state, Exception exception) {
+            updateView();
+        }
     }
 }

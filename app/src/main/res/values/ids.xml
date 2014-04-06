@@ -22,6 +22,11 @@
 
     <item type="id" name="button_share_send" />
     <item type="id" name="button_share_cancel" />
+    <item type="id" name="button_share_add" />
+    <item type="id" name="edit_share_title" />
+    <item type="id" name="edit_share_detail" />
+    <item type="id" name="text_share_count" />
+
 
     <item type="id" name="button_pic_blur" />
     <item type="id" name="button_pic_flash" />
@@ -32,5 +37,6 @@
     <item type="id" name="button_pic_filter" />
 
     <item type="id" name="gallery_filter"/>
+
 
 </resources>

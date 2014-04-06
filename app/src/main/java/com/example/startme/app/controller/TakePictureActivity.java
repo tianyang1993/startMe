@@ -210,6 +210,7 @@ public class TakePictureActivity extends Activity {
                 }
 
                 filterScrollView.setVisibility(isFilterOpened?View.VISIBLE:View.INVISIBLE);
+                filterScrollView.invalidate();
             }
         });
     }
