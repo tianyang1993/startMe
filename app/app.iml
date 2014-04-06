@@ -73,6 +73,7 @@
     <orderEntry type="library" exported="" name="gpuimage" level="project" />
     <orderEntry type="library" exported="" name="facebooksdk" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-19.0.0" level="project" />
+    <orderEntry type="library" exported="" name="native-libs" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.0.0" level="project" />
   </component>
 </module>

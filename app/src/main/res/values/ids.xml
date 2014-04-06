@@ -31,5 +31,6 @@
     <item type="id" name="button_pic_shot" />
     <item type="id" name="button_pic_filter" />
 
+    <item type="id" name="gallery_filter"/>
 
 </resources>

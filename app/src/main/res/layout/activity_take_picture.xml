@@ -51,15 +51,39 @@
 
     </RelativeLayout>
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/camera_top"
-        android:id="@+id/camera_preview"
         android:layout_centerVertical="true"
-        android:layout_weight="70">
+        android:layout_weight="70"
 
-    </FrameLayout>
+        >
+
+        <android.opengl.GLSurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/horizontalScrollView"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="#ffffff">
+
+            <FrameLayout
+                android:id="@id/gallery_filter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+        </HorizontalScrollView>
+
+    </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="fill_parent"
