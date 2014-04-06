@@ -14,4 +14,10 @@ public class ConnectActivity extends Activity {
         setContentView(R.layout.activity_connect);
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+
+    }
+
 }

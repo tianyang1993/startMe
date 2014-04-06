@@ -7,8 +7,10 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="G:\Users\Tian\AndroidStudioProjects\startMe" />
+            <option value="G:\Users\Tian\AndroidStudioProjects\startMe\app" />
+            <option value="G:\Users\Tian\AndroidStudioProjects\startMe\app\libraries" />
+            <option value="G:\Users\Tian\AndroidStudioProjects\startMe\app\libraries\facebook" />
           </set>
         </option>
       </GradleProjectSettings>

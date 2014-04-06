@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.startme.app.model.StatusManager;
 import com.facebook.*;
 import com.facebook.model.*;
 
@@ -73,17 +75,24 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         Session.getActiveSession().addCallback(statusCallback);
-
+        StatusManager.getInstance().read(getApplicationContext());
     }
 
     @Override
     public void onStop() {
         super.onStop();
         Session.getActiveSession().removeCallback(statusCallback);
+        StatusManager.getInstance().write(getApplicationContext());
     }
 
     @Override
@@ -118,14 +127,26 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void logoutWithFacebook() {
+        Session session = Session.getActiveSession();
+        if (!session.isClosed()) {
+            session.closeAndClearTokenInformation();
+        }
+    }
+
     private void updateView() {
         Session session = Session.getActiveSession();
         if (session.isOpened()) {
 
             Log.i(TAG, "facebook login success!!!");
 
+            Intent intent = new Intent(this, TabBarActivity.class);
+            startActivity(intent);
+            finish();
+
         } else {
 
+            Toast.makeText(this, R.string.message_fb_login_failed, Toast.LENGTH_LONG).show();
 
         }
     }

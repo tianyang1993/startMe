@@ -216,6 +216,12 @@ public class TakePictureActivity extends Activity {
     }
 
     @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         mCamera.onResume();

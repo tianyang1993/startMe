@@ -83,6 +83,12 @@ public class ProfileActivity extends Activity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+
+    }
+
     void done(){
 
         Intent intent = new Intent(this, TabBarActivity.class);

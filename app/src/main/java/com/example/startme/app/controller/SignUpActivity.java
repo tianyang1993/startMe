@@ -104,6 +104,12 @@ public class SignUpActivity extends Activity {
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+
+    }
+
     void cancel(){
 
         finish();

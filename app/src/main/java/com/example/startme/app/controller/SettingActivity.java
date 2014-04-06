@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.startme.app.R;
+import com.facebook.Session;
 
 public class SettingActivity extends Activity {
 
@@ -22,9 +23,20 @@ public class SettingActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                finish();
+            Session session = Session.getActiveSession();
+            if (!session.isClosed()) {
+                session.closeAndClearTokenInformation();
+            }
+
+            finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+
     }
 
 }

@@ -14,4 +14,9 @@ public class AlertActivity extends Activity {
         setContentView(R.layout.activity_alert);
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+
+    }
 }

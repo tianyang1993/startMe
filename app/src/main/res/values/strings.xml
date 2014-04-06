@@ -21,6 +21,7 @@
     <string name="title_activity_share_blank">ShareBlankActivity</string>
     <string name="title_activity_take_picture">TakePicture</string>
     <string name="title_button_facebook_login">LOGIN WITH FACEBOOK</string>
+
     <string name="title_button_signup">Sign Up</string>
     <string name="title_button_signin">Sign In</string>
     <string name="title_button_Cancel">Cancel</string>
@@ -42,5 +43,10 @@
     <string name="message_insert_vaild_surname">Insert a valid surname, thank you.</string>
     <string name="message_insert_vaild_email">Invalid e-mail: insert a valid e-mail\n(ex. example@gmail.com)</string>
     <string name="message_inequal_email">The e-mails are inequal.</string>
+
+    <string name="message_fb_login_failed">Facebook login failed !</string>
+
+
+
 
 </resources>
